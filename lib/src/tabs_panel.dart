@@ -83,4 +83,12 @@ class TabsPanel extends PanelComponent
     }, orElse: () => tags.first);
     currentTag = tabTag;
   }
+
+  @override
+  void reRender() {
+    tagsPanel.reRender();
+    for (final tag in tags) {
+      tag.tabContent.reRender();
+    }
+  }
 }
